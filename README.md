@@ -16,11 +16,11 @@ Will not work to time that block out after one second, because a tight loop like
 
 [https://crystal-lang.org/api/1.0.0/Fiber.html#yield-class-method](https://crystal-lang.org/api/1.0.0/Fiber.html#yield-class-method)
 
-| Yields to the scheduler and allows it to swap execution to other waiting fibers.
-|
-| This is equivalent to sleep 0.seconds. It gives the scheduler an option to interrupt the current fiber's execution. If no other fibers are ready to be resumed, it immediately resumes the current fiber.
-|
-| This method is particularly useful to break up tight loops which are only computation intensive and don't offer natural opportunities for swapping fibers as with IO operations.
+> Yields to the scheduler and allows it to swap execution to other waiting fibers.
+>
+> This is equivalent to sleep 0.seconds. It gives the scheduler an option to interrupt the current fiber's execution. If no other fibers are ready to be resumed, it immediately resumes the current fiber.
+>
+> This method is particularly useful to break up tight loops which are only computation intensive and don't offer natural opportunities for swapping fibers as with IO operations.
 
 `Fiber.yield` will do the job. It just needs to be inserted somewhere inside of the tight, otherwise CPU bound loop.
 
