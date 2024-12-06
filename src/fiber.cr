@@ -34,4 +34,13 @@ class Fiber
   def timeout_state_and_error=(state : TimeoutState)
     @tstate = state
   end
+
+  def timeout(timeout : Time::Span, select_action : Channel::TimeoutAction?) : Nil
+    @timeout_select_action = select_action
+    timeout_event.add(timeout)
+  end
+
+  def self.timeout(timeout : Time::Span, select_action : Channel::TimeoutAction? = nil) : Nil
+    Fiber.current.timeout(timeout, select_action)
+  end
 end
