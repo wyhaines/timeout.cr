@@ -1,8 +1,7 @@
+require "./version"
 require "./fiber"
 
 struct Timeout
-  VERSION = "0.1.0"
-
   class Error < Exception
   end
 end
@@ -34,6 +33,7 @@ def timeout(
   &blk
 )
   current_fiber = Fiber.current
+
   fiber_state, fiber_error = current_fiber.timeout_state_and_error = {:unstarted, nil}
 
   timeout_fiber = Fiber.new(name: "Timeout --#{blk}--#{seconds}") {

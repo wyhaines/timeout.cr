@@ -1,5 +1,5 @@
 name: timeout
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Kirk Haines <wyhaines@gmail.com>
@@ -11,4 +11,4 @@ license: MIT
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14
+    version: ~> 1.6.3
